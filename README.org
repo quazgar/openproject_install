@@ -1,5 +1,6 @@
-Instructions, notes and scripts for installing OpenProject manually
-and locally.
+Installing OpenProject manually and locally.
+
+This repository contains instructions, notes and scripts.
 
 * Use Case
 - Installing OpenProject at [[https://uberspace.de][uberspace]].

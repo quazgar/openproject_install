@@ -1,0 +1,30 @@
+* Installing services
+** Prerequisties
+Set up the directory structure according to
+https://wiki.uberspace.de/system:daemontools#fuer_ungeduldige:
+=test -d ~/service || uberspace-setup-svscan=
+
+** Installing a service
+https://wiki.uberspace.de/system:daemontools#einen_daemon_einrichten
+
+- Create =~/etc/run-my-daemon/run= service run script.
+- Create the =~/etc/run-my-daemon/log/run= logging run script.
+- Create symlink from =~/etc/run-my-daemon= to =~/service/my-daemon=
+
+* Starting, stopping, status
+
+- start :: =svc -u run-my-daemon= (up)
+- stop :: =svc -d run-my-daemon= (down)
+- status :: =svc -s run-my-daemon=
+- restart :: =svc -du run-my-daemon=
+
+* Removing services
+https://wiki.uberspace.de/system:daemontools#einen_daemon_entfernen
+First remove the service, then stop it:
+
+#+BEGIN_SRC sh
+cd ~/service/my-daemon
+rm ~/service/my-daemon
+svc -dx . log
+rm -rf ~/etc/run-my-daemon
+#+END_SRC
