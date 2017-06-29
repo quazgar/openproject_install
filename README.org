@@ -1,0 +1,11 @@
+Instructions, notes and scripts for installing OpenProject manually
+and locally.
+
+* Use Case
+- Installing OpenProject at [[https://uberspace.de][uberspace]].
+- Only normal user right, no root access.
+- Services run using [[https://wiki.uberspace.de/system:daemontools][daemontools]].
+
+* References
+- Howto by @DevWurm:
+  https://gist.github.com/DevWurm/2400b784e788609a4dbb1bbe291deb31
