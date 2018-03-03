@@ -76,7 +76,7 @@ __EOF__
 
 ########
 ## Initializing the database and server
-mysql -e "DROP DATABASE IF EXISTS quazgar2_openproject" || die
+mysql -e "DROP DATABASE IF EXISTS ${USER}_openproject" || die
 RAILS_ENV="production" ./bin/rake db:create || die
 RAILS_ENV="production" ./bin/rake db:migrate || die
 RAILS_ENV="production" LOCALE="$OP_LOCALE" ./bin/rake db:seed || die
