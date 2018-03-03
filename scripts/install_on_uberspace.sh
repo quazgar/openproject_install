@@ -100,7 +100,6 @@ source ~/.bash_profile
 # Is this really necessary?
 cp -r public/* ~/html/
 
-
 ###############################
 ## Create and start services
 
@@ -134,6 +133,17 @@ chmod +x ~/bin/openproject-worker
 # Setup and start services
 uberspace-setup-service openproject-web ~/bin/openproject-web
 uberspace-setup-service openproject-worker ~/bin/openproject-worker
+
+# Redirect requests to the local service
+cat > ~/html/.htaccess <<__EOF__
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteCond %{ENV:HTTPS} !=on
+RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=302,L]
+
+RewriteRule (.*) http://localhost:${PORT}/\$1 [P]
+__EOF__
+
 
 #################################
 ## We should be finished now
