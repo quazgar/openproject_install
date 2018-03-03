@@ -18,7 +18,7 @@ NODE_PATH=/package/host/localhost/nodejs-9/bin
 RUBYVERSION=2.4.3
 PORT=61987
 # Needed for email sending
-USER_PWD="o5zfCQ6iimr9yASC"
+USER_PWD=""
 OP_LOCALE=de
 
 ###########################
