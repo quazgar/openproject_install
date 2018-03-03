@@ -26,9 +26,12 @@ OP_LOCALE=de
 
 # Set the best nodejs version in ~/.bash_profile
 sed -i 's#^NODE_PATH=.*#NODE_PATH="'"${NODE_PATH}"'"#' ~/.bash_profile
-PATH_LINE='PATH="$NODE_PATH:$PATH"'
-grep -Fxq "${PATH_LINE}" ~/.bash_profile || echo "$PATH_LINE" >> ~/.bash_profile
+PATH_LINE='PATH="'"$NODE_PATH"':$PATH"'
 EXPORT_LINE='export PATH'
+grep -Fxq "${PATH_LINE}" ~/.bash_profile || {
+    echo "$PATH_LINE" >> ~/.bash_profile
+    echo "$EXPORT_LINE" >> ~/.bash_profile
+}
 grep -Fxq "${EXPORT_LINE}" ~/.bash_profile || echo "$EXPORT_LINE" >> ~/.bash_profile
 
 echo "gem: --user-install --no-rdoc --no-ri" > ~/.gemrc
@@ -152,7 +155,7 @@ __EOF__
 #################################
 ## We should be finished now
 
-echo <<__EOF__
+cat <<__EOF__
 
 Congratulations!  OpenProject should be running now on your machine.
 
