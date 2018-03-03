@@ -40,7 +40,7 @@ source ~/.bash_profile
 ##################
 ## Get OpenProject
 
-rm -r openproject
+rm -rf openproject
 git clone https://github.com/opf/openproject-ce.git --branch stable/7 --depth 1 openproject || die
 cd openproject || die
 
