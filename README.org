@@ -2,6 +2,9 @@ Installing OpenProject manually and locally.
 
 This repository contains instructions, notes and scripts.
 
+The script runs through on a clean account, but OpenProject is not served
+correctly yet.
+
 * Use Case
 - Installing OpenProject at [[https://uberspace.de][uberspace]].
 - Only normal user right, no root access.
@@ -13,21 +16,17 @@ This repository contains instructions, notes and scripts.
 - Older howto by @DevWurm:
   https://gist.github.com/DevWurm/2400b784e788609a4dbb1bbe291deb31
 
-* Issues
-** 2martens
-Found trying out 2martens' instructions.
-*** On US 6
+* Questions
+** On US 6
+Referring to 2martens' instructions.
 - =git checkout stable= is not necessary.
-- I tried it first without the open port, but using 61987 now.
+- Port opening is not necessary, the port just needs to be free.
 - Add =npm install webpackage= at the beginning?
 - .htaccess: Make sure that the "$1" is written verbatim:
   =RewriteRule (.*) http://localhost:<port>/$1 [P]=
 - Make sure to recreate (and source) the secret after the rake step.
 
-*** On US 7
-- Works on uberspace 7 as well, until =uberspace-add-port=, which does not exist
-  (yet) on uberspace 7. -> open port seems to be unnecessary? Just pick any
-  (free) port > 61000.
+** On US 7
 - At *RAILS_ENV="production" ./bin/rake db:create*:
   #+BEGIN_SRC
 Rake aborted!
