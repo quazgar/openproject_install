@@ -13,11 +13,13 @@ This repository contains instructions, notes and scripts.
 - Older howto by @DevWurm:
   https://gist.github.com/DevWurm/2400b784e788609a4dbb1bbe291deb31
 
-* Troubles
+* Issues
 ** 2martens
+Found trying out 2martens' instructions.
 *** On US 6
 - =git checkout stable= is not necessary.
 - I tried it first without the open port, but using 61987 now.
+- Add =npm install webpackage= at the beginning?
 - .htaccess: Make sure that the "$1" is written verbatim:
   =RewriteRule (.*) http://localhost:<port>/$1 [P]=
 - Make sure to recreate (and source) the secret after the rake step.

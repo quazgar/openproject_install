@@ -15,7 +15,7 @@ https://wiki.uberspace.de/system:daemontools#einen_daemon_einrichten
 
 - start :: =svc -u run-my-daemon= (up)
 - stop :: =svc -d run-my-daemon= (down)
-- status :: =svc -s run-my-daemon=
+- status :: =svstat ~/service/run-my-daemon=
 - restart :: =svc -du run-my-daemon=
 
 * Removing services
