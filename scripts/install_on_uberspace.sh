@@ -40,10 +40,13 @@ source ~/.bash_profile
 ##################
 ## Get OpenProject
 
+echo "Removing old OpenProject directory, if it exists."
 rm -rf openproject
+echo "Cloning OpenProject"
 git clone https://github.com/opf/openproject-ce.git --branch stable/7 --depth 1 openproject || die
 cd openproject || die
 
+echo "Installing Gems and NodeJS modules."
 gem install bundler || die
 bundle install --deployment --without postgres sqlite development test therubyracer docker || die
 npm install || die
@@ -51,9 +54,10 @@ npm install || die
 ##################
 ### Config files
 
+echo "Adapting config files..."
 # Database
 cp config/database.yml.example config/database.yml
-sed -i 's/  username: .*/  username:: '"$USER"'/g' config/database.yml
+sed -i 's/  username: .*/  username: '"$USER"'/g' config/database.yml
 PASSWD=$(grep -A 5 '\[client]' ~/.my.cnf | grep "password=" \
              | sed -E 's/.*=([0-9a-zA-Z]*).*/\1/')
 sed -i 's/  password:.*/  password: '"$PASSWD"'/g' config/database.yml
